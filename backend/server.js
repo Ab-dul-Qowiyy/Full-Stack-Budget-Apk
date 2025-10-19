@@ -16,9 +16,12 @@ connectDB()
 
 //MIDDLEWARES
 app.use(express.json());
+
+const allowedOrigins =["https://full-stack-budget-apk.vercel.app",]
 app.use(cors({
-  origin: "https://full-stack-budget-apk.onrender.com",
-  credentials:true
+  origin: allowedOrigins,
+  methods:["GET", "POST", "PUT","DELETE"],
+  credentials: true,
 }));
 
 //GET REQUEST
