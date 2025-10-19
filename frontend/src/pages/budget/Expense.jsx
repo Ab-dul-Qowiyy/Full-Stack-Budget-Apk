@@ -1,0 +1,45 @@
+import React from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getExpenses } from "../../redux/action/expenseAction";
+import Expenseslist from "./Expenseslist";
+import ExpenseForm from "./ExpenseForm";
+import styled from "styled-components";
+
+const Div = styled.div`
+
+`;
+
+const Value = styled.span`
+  color: Red;
+`;
+
+const Expense = ({ expense, setExpense, expenseTotal, handleDelete }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getExpenses());
+  }, []);
+
+  return (
+    <Div>
+      <ExpenseForm setExpense={setExpense} expense={expense} />
+      <h1>Expense List</h1>
+      {expense.map((expenses) => (
+        <Expenseslist
+          key={expenses._id}
+          expense={expenses}
+          handleDelete={handleDelete}
+        />
+      ))}
+
+      <div>
+        <h1>
+          Total: <Value>-${expenseTotal}</Value>
+        </h1>
+      </div>
+    </Div>
+  );
+};
+
+export default Expense;

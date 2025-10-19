@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html {
+  min-height: 100%;
+  font-family: sans-serif;
+  /* background: linear-gradient(135deg, #1B8AF1, #B58DED); */
+  /* background-color: rgb(195, 177, 219); */
+  background-color: black;
+  background: linear-gradient(139deg, black 30%, white 50%, rgb(124, 66, 199)  70%);
+}
+
+body{
+    max-width: 2000px;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+    overflow-x: hidden;
+}
