@@ -19,7 +19,12 @@ app.use(express.json());
 
 const allowedOrigins =["https://full-stack-budget-apk.vercel.app",]
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function(origin, callback){
+    if(!origin)return callback(null,true);
+    if(allowedOrigins.includes(origin))
+      return callback(null, true);
+    return callback(new Error("Not allowd by CORS"));
+  },
   methods:["GET", "POST", "PUT","DELETE"],
   credentials: true,
 }));
