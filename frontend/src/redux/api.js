@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://localhost:5000/api";
+export const baseURL = "https://full-stack-budget-apk.onrender.com";
 
 const API = axios.create({ baseURL: baseURL });
 API.interceptors.request.use((req) => {
