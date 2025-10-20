@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://budget-backend-two.vercel.app/";
+export const baseURL = "https://budget-backend-two.vercel.app/api";
 
 const API = axios.create({ baseURL: baseURL });
 API.interceptors.request.use((req) => {
