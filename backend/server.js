@@ -17,12 +17,14 @@ connectDB()
 //MIDDLEWARES
 app.use(express.json());
 
-const allowedOrigins =["https://full-stack-budget-apk.vercel.app",]
-app.use(cors({
-  origin: allowedOrigins,
-  methods:["GET", "POST", "PUT","DELETE"],
-  credentials: true,
-}));
+// const allowedOrigins =["https://full-stack-budget-apk.vercel.app",]
+// app.use(cors({
+//   origin: allowedOrigins,
+//   methods:["GET", "POST", "PUT","DELETE"],
+//   credentials: true,
+// }));
+
+app.use(cors());
 
 //GET REQUEST
 app.get("/", (req, res) => {
