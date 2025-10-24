@@ -16,7 +16,14 @@ const Div = styled.div`
     position: relative;
   } */
 
-
+  @media (max-width: 500px) {
+    /* margin-right: 90%; */
+    h1 {
+      /* margin-right: 90%; */
+      font-size: 20px;
+      /* width: 400px; */
+    }
+  }
 `;
 
 const IncomeSpace = styled.div`
@@ -51,8 +58,6 @@ const Income = ({ income, setIncome, incomeTotal, handleDelete }) => {
           </h1>
         </div>
       </IncomeSpace>
-
-
     </Div>
   );
 };

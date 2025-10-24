@@ -7,6 +7,15 @@ const LogOut = styled.button`
   font-size: 40px;
   color: rgb(124, 66, 199);
   background-color: transparent;
+
+  @media (max-width: 500px) {
+    
+    
+      margin-left: 90%;
+      font-size: 22px;
+      
+    
+  }
 `;
 
 const Logout = () => {
