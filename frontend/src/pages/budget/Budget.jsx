@@ -117,7 +117,7 @@ const Budget = () => {
   const handleIncomeDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/incomes/delete/${id}`
+        `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`
       );
       console.log(data);
       setIncome(income.filter((income) => income._id !== id));
@@ -128,7 +128,7 @@ const Budget = () => {
   const handleExpenseDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/expenses/delete/${id}`
+        `https://budget-backend-two.vercel.app/api/expenses/delete/${id}`
       );
       console.log(data);
       setExpense(expense.filter((expense) => expense._id !== id));
