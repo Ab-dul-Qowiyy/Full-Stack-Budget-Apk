@@ -16,6 +16,7 @@ const Container = styled.div`
   margin: 2% auto;
   padding: 1.5rem;
   animation: appear 1s ease-in forwards;
+  /* padding-right: 15%; */
 
   @keyframes appear {
     from {
@@ -29,9 +30,10 @@ const Container = styled.div`
     }
   }
 
-  @media(max-width: 280px){
+  @media(max-width: 500px){
     margin-right: 90%;
   }
+
 `;
 
 const App = () => {

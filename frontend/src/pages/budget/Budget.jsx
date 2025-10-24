@@ -41,7 +41,14 @@ const Budgetlist = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-`
+
+  @media (max-width: 500px) {
+    /* margin-right: 90%; */
+    h1 {
+      margin-right: 90%;
+    }
+  }
+`;
 
 const Budget = () => {
   const dispatch = useDispatch();
