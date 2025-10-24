@@ -23,7 +23,7 @@ const Logout = () => {
     const handleLogout =async()=>{
    
 
-        await fetch("http://localhost:5000/api/auth/logout", {
+        await fetch("https://budget-backend-two.vercel.app/api/auth/logout", {
           method: "POST",
           credentials: "include",
         });
