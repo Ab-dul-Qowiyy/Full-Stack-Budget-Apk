@@ -118,6 +118,7 @@ const Budget = () => {
     try {
       const { data } = await axios.delete(
         `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`
+
       );
       console.log(data);
       setIncome(income.filter((income) => income._id !== id));

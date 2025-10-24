@@ -25,7 +25,6 @@ const Logout = () => {
 
         await fetch("https://budget-backend-two.vercel.app/api/auth/logout", {
           method: "POST",
-          credentials: "include",
         });
      localStorage.removeItem("token")
 
