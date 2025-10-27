@@ -21,7 +21,7 @@ const expensesControllers = {
         });
       }
 
-      const newExpense = new Expenses({
+      const newExpense = await Expenses({
         item,
         amount,
         postedBy:req.user

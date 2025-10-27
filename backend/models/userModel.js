@@ -27,9 +27,7 @@ const userSchema = new mongoose.Schema({
     max: 20,
     min:9,
   },
-  type:{
-    
-  }
+
 },{timestamps:true});
 
 const User = mongoose.model('Users', userSchema);

@@ -33,6 +33,8 @@ const Value = styled.span`
   color: lime;
 `;
 
+// const user = JSON.parse(localStorage.getItem("user"));
+
 const Income = ({ income, setIncome, incomeTotal, handleDelete }) => {
   const dispatch = useDispatch();
 

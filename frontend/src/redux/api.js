@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export const baseURL = "https://budget-backend-two.vercel.app/api";
+// export const baseURL = "http://localhost:5000/api";
+
+
 
 const API = axios.create({ baseURL: baseURL });
 API.interceptors.request.use((req) => {
@@ -18,6 +21,7 @@ export const createIncome = (incomeData) =>
   API.post("/incomes/create", incomeData);
 
 export const getIncomes = () => API.get("/incomes");
+export const getUserIncome = (id) => API.get(`/auth/user-profile/${id}`);
 
 export const deleteIncome = (id) =>
   API.delete(`/incomes/delete/${id}`);
@@ -27,6 +31,9 @@ export const createExpense = (expenseData) =>
   API.post("/expenses/create", expenseData);
 
 export const getExpense = () => API.get("/expenses");
+export const getUserExpense = (id) => API.get(`/auth/user-profile/${id}`);
+
+
 
 export const deleteExpense = (id) => API.delete(`/expenses/delete/${id}`, )
 

@@ -15,6 +15,19 @@ export const getExpenses = () => async (dispatch) =>{
   }
 };
 
+export const getUserExpenses = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.getUserExpense(id);
+    console.log(data);
+    dispatch({
+      type: EXPENSES_TYPE.GET_EXPENSES,
+      payload: data.expense,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const createExpenses = (expenseitem) => async (dispatch)=>{
     try {
           const {data} = await api.createExpense(expenseitem);

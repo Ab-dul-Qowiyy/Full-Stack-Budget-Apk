@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const {ObjectId} = mongoose.Schema.Types
+const {ObjectId} = mongoose.Schema.Types;
 
 const expensesSchema = new mongoose.Schema({
   item: {
@@ -13,8 +13,8 @@ const expensesSchema = new mongoose.Schema({
     required: true,
   },
   postedBy: {
-    ref: 'User',
-    type: ObjectId
+    type: ObjectId,
+    ref: 'Users',
   }
 },{timestamps: true});
 

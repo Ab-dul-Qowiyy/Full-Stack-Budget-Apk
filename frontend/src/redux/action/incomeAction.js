@@ -36,6 +36,19 @@ export const createincomes = (incomeitems)=> async (dispatch)=>{
     }
 }
 
+export const getUserIncome = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.getUserIncome(id);
+    console.log(data);
+    dispatch({
+      type: INCOME_TYPES.GET_INCOMES,
+      payload: data.income,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const deleteIncome =(id) => async (dispatch)=>{
   try{
     const {data}= await api.deleteIncome(id)

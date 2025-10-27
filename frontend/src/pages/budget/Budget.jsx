@@ -3,10 +3,11 @@ import Income from "./Income";
 import Expense from "./Expense";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteIncome, getIncomes } from "../../redux/action/incomeAction";
-import { deleteExpense, getExpenses } from "../../redux/action/expenseAction";
+import { deleteIncome, getIncomes, getUserIncome } from "../../redux/action/incomeAction";
+import { deleteExpense, getExpenses, getUserExpenses } from "../../redux/action/expenseAction";
 import axios from "axios";
 import Logout from "../../components/Logout";
+// import { getUserIncome } from "../../redux/api";
 
 const Div = styled.div`
   max-width: 50%;
@@ -53,11 +54,14 @@ const Header = styled.div`
   }
 `;
 
+
+const user = JSON.parse(localStorage.getItem("user"));
+
 const Budget = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getIncomes());
-    dispatch(getExpenses());
+    dispatch(getUserIncome(user._id));
+    dispatch(getUserExpenses(user._id));
   }, []);
 
   const incomes = useSelector((state) => state.income.income);

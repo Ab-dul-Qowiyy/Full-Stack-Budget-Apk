@@ -14,7 +14,7 @@ const incomesSchema = new mongoose.Schema(
       required: true,
     },
     postedBy: {
-      ref: "User",
+      ref: "Users",
       type: ObjectId,
     },
   },

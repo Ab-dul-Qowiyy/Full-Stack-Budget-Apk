@@ -18,7 +18,7 @@ const auth = (req, res, next) => {
 
         const { _id } = payload;
         const userData = await User.findById(_id)  
-        req.User = userData;
+        req.user = userData;
         next()   
       })
 };
