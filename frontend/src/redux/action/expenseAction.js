@@ -27,4 +27,20 @@ export const createExpenses = (expenseitem) => async (dispatch)=>{
         console.log(err);
         
     }
+};
+
+
+export const deleteExpense =(id) => async (dispatch)=>{
+  try{
+    const {data}= await api.deleteExpense(id)
+    dispatch({
+      type:EXPENSES_TYPE.DELETE_EXPENSE,
+      payload:data.id
+    })
+    toast.success(data.msg)
+
+  } catch(err){
+    console.log(err);
+    
+  }
 }

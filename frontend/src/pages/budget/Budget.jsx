@@ -3,8 +3,8 @@ import Income from "./Income";
 import Expense from "./Expense";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { getIncomes } from "../../redux/action/incomeAction";
-import { getExpenses } from "../../redux/action/expenseAction";
+import { deleteIncome, getIncomes } from "../../redux/action/incomeAction";
+import { deleteExpense, getExpenses } from "../../redux/action/expenseAction";
 import axios from "axios";
 import Logout from "../../components/Logout";
 
@@ -117,36 +117,39 @@ const Budget = () => {
   const token = localStorage.getItem("token");
 
   const handleIncomeDelete = async (id) => {
-    try {
-      const { data } = await axios.delete(
-        `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log(data);
-      setIncome(income.filter((income) => income._id !== id));
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   const { data } = await axios.delete(
+    //     `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`,
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     }
+    //   );
+    //   console.log(data);
+    //   setIncome(income.filter((income) => income._id !== id));
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+    dispatch(deleteIncome(id))
   };
   const handleExpenseDelete = async (id) => {
-    try {
-      const { data } = await axios.delete(
-        `https://budget-backend-two.vercel.app/api/expenses/delete/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log(data);
-      setExpense(expense.filter((expense) => expense._id !== id));
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   const { data } = await axios.delete(
+    //     `https://budget-backend-two.vercel.app/api/expenses/delete/${id}`,
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     }
+    //   );
+    //   console.log(data);
+    //   setExpense(expense.filter((expense) => expense._id !== id));
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    dispatch(deleteExpense(id))
   };
 
   return (

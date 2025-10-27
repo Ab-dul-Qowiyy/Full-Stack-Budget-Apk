@@ -19,8 +19,14 @@ export const createIncome = (incomeData) =>
 
 export const getIncomes = () => API.get("/incomes");
 
+export const deleteIncome = (expenseData) =>
+  API.delete(`/incomes/delete/${id}`);
+
+
 export const createExpense = (expenseData) =>
   API.post("/expenses/create", expenseData);
 
 export const getExpense = () => API.get("/expenses");
+
+export const deleteExpense = (expenseData) => API.delete(`/expenses/delete/${id}`)
 

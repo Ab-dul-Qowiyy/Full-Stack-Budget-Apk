@@ -32,7 +32,13 @@ const expenses = (state = initialState, action) => {
        return {
          ...state,
          expenses: [...state.expenses, action.payload],
-         };   
+         }
+         
+    case EXPENSES_TYPE.DELETE_EXPENSE:
+      return{
+        ...state,
+        expenses:state.expenses.filter((expense)=> expense.id  !==action.payload)
+      }     
     default:
       return state;
   }
