@@ -41,14 +41,33 @@ const App = () => {
   return (
     <Container>
       <BrowserRouter>
-        <Routes>
+        {/* <Routes>
           {user ? (
             <Route path="/" element={<Budget />} />
           ) : (
             <>
               <Route path="/auth/user/register" element={<Register />} />
               <Route path="/auth/user/login" element={<Login />} />
-              {/* <Route path="*" element={<Navigate to="/auth/user/login" />} /> */}
+              <Route path="*" element={<Navigate to="/auth/user/login" />} />
+            </>
+          )}
+        </Routes> */}
+
+        <Routes>
+          {user ? (
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Budget />
+                </ProtectedRoute>
+              }
+            />
+          ) : (
+            <>
+              <Route path="/auth/user/register" element={<Register />} />
+              <Route path="/auth/user/login" element={<Login />} />
+              <Route path="*" element={<Navigate to="/auth/user/login" />} />
             </>
           )}
         </Routes>
