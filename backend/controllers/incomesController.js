@@ -35,7 +35,7 @@ const incomesControllers = {
 
 
 
-              await (await newExpense.save()).populate("postedBy", "-password");
+              await (await newIncome.save()).populate("postedBy", "-password");
 
             return res.status(201).json({
                 msg: 'New income created successfully',
