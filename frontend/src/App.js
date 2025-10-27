@@ -53,7 +53,7 @@ const App = () => {
           )}
         </Routes> */}
 
-        <Routes>
+        {/* <Routes>
           {user ? (
             <Route
               path="/"
@@ -70,9 +70,9 @@ const App = () => {
               <Route path="*" element={<Navigate to="/auth/user/login" />} />
             </>
           )}
-        </Routes>
+        </Routes> */}
 
-        {/* <Routes>
+        <Routes>
           <Route
             path="/"
             element={
@@ -84,7 +84,7 @@ const App = () => {
           <Route path="/auth/user/register" element={<Register />} />
           <Route path="/auth/user/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/auth/user/login" />} />
-        </Routes> */}
+        </Routes>
       </BrowserRouter>
       <ToastContainer />
     </Container>
