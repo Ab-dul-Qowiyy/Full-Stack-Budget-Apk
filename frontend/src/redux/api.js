@@ -19,8 +19,8 @@ export const createIncome = (incomeData) =>
 
 export const getIncomes = () => API.get("/incomes");
 
-export const deleteIncome = (incomeData) =>
-  API.delete(`/incomes/delete/${id}`, incomeData);
+export const deleteIncome = (id) =>
+  API.delete(`/incomes/delete/${id}`);
 
 
 export const createExpense = (expenseData) =>
@@ -28,5 +28,5 @@ export const createExpense = (expenseData) =>
 
 export const getExpense = () => API.get("/expenses");
 
-export const deleteExpense = (expenseData) => API.delete(`/expenses/delete/${id}`, expenseData)
+export const deleteExpense = (id) => API.delete(`/expenses/delete/${id}`, )
 
