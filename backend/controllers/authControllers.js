@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
+import expenses from '../models/expensesModel.js';
+import Incomes from '../models/incomeModel.js';
 
 const authControllers = {
     signUp: async (req, res) => {
@@ -74,6 +76,25 @@ const authControllers = {
             return res.status(500).json({
                 msg:'Server error during logout'
             })
+        }
+    },
+
+    getUserProfile: async (req, res)=> {
+        try{
+            const user = await User.findOne({_id: req.params.id}).select('-password');
+
+            const expense= await expenses.find({postedBy:req.params.id}).populate(
+                'postedBy',
+                '-password',
+            );
+            const income= await Incomes.find({postedBy:req.params.id}).populate(
+                'postedBy',
+                '-password',
+            );
+            return res.status(200).json({msg:'User Profile.', user, expense, income});
+        } catch(err) {
+            console.log(err.message);
+            return res.status(500).json({msg:err.message});
         }
     }
 

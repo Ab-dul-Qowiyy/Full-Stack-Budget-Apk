@@ -4,7 +4,7 @@ import Expenses from "../models/expensesModel.js";
 const expensesControllers = {
   getallExpenses: async (req, res) => {
     try {
-      const expense = await Expenses.find({user:req.user.id});
+      const expense = await Expenses.find().populate('postedBy', '-password');
       return res.status(200).json({ msg: "All expenses", data: expense });
     } catch (err) {
       console.log(err.message);
@@ -24,11 +24,11 @@ const expensesControllers = {
       const newExpense = new Expenses({
         item,
         amount,
-        
-        user: req.user.id
+        postedBy:req.user
+        // user: req.user.id
       });
 
-      await newExpense.save();
+      await (await newExpense.save()).populate("postedBy", '-password');
 
       return res.status(201).json({
         msg: "New expense created successfully",

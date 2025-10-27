@@ -4,7 +4,7 @@ import auth from '../middleware/auth.js'
 
 const incomeRouter = express.Router()
 
-incomeRouter.get("/", auth, incomesControllers.getallIncomes);
+incomeRouter.get("/",  incomesControllers.getallIncomes);
 incomeRouter.post("/create", auth, incomesControllers.createIncome);
 incomeRouter.delete("/delete/:incomeId", auth, incomesControllers.deleteIncome);
 

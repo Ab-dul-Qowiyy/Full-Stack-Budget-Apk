@@ -1,18 +1,26 @@
 import mongoose from "mongoose";
+const { ObjectId } = mongoose.Schema.Types;
 
-const incomesSchema = new mongoose.Schema({
-  item: {
-    type: String,
-    trim: true,
-    required: true,
+const incomesSchema = new mongoose.Schema(
+  {
+    item: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      trim: true,
+      required: true,
+    },
+    postedBy: {
+      ref: "User",
+      type: ObjectId,
+    },
   },
-  amount: {
-    type: Number,
-    trim: true,
-    required: true,
-  },
-},{timestamps: true});
+  { timestamps: true }
+);
 
-const Incomes = mongoose.model('incomes', incomesSchema)
+const Incomes = mongoose.model("incomes", incomesSchema);
 
 export default Incomes;

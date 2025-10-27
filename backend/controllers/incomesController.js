@@ -4,7 +4,10 @@ import Incomes from '../models/incomeModel.js';
 const incomesControllers = {
     getallIncomes: async(req, res) =>{
         try {
-            const income = await Incomes.find({user: req.user.id})
+            const income = await Incomes.find().populate(
+              "postedBy",
+              "-password"
+            );
             return res.status(200).json({msg: 'All Incomes', data: income})
         } catch (err) {
             console.log(err.message);
@@ -24,15 +27,15 @@ const incomesControllers = {
               
                 
             const newIncome = new Incomes({
-                item,
-                amount,
+              item,
+              amount,
 
-                user: req.user.id
+              postedBy: req.user,
             });
 
 
 
-            await newIncome.save();
+              await (await newExpense.save()).populate("postedBy", "-password");
 
             return res.status(201).json({
                 msg: 'New income created successfully',

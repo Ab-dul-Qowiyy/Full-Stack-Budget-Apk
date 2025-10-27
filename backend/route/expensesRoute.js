@@ -4,7 +4,7 @@ import auth from "../middleware/auth.js";
 
 const expenseRouter = express.Router();
 
-expenseRouter.get("/", auth, expensesControllers.getallExpenses);
+expenseRouter.get("/",  expensesControllers.getallExpenses);
 expenseRouter.post("/create", auth, expensesControllers.createExpense);
 expenseRouter.delete(
   "/delete/:expenseId",
