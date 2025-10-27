@@ -4,7 +4,7 @@ import Incomes from '../models/incomeModel.js';
 const incomesControllers = {
     getallIncomes: async(req, res) =>{
         try {
-            const income = await Incomes.find()
+            const income = await Incomes.find({user: req.user.id})
             return res.status(200).json({msg: 'All Incomes', data: income})
         } catch (err) {
             console.log(err.message);
@@ -25,7 +25,9 @@ const incomesControllers = {
                 
             const newIncome = new Incomes({
                 item,
-                amount
+                amount,
+
+                user: req.user.id
             });
 
 

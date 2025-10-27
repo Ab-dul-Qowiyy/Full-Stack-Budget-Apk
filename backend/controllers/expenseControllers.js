@@ -4,7 +4,7 @@ import Expenses from "../models/expensesModel.js";
 const expensesControllers = {
   getallExpenses: async (req, res) => {
     try {
-      const expense = await Expenses.find();
+      const expense = await Expenses.find({user:req.user.id});
       return res.status(200).json({ msg: "All expenses", data: expense });
     } catch (err) {
       console.log(err.message);
@@ -24,6 +24,8 @@ const expensesControllers = {
       const newExpense = new Expenses({
         item,
         amount,
+        
+        user: req.user.id
       });
 
       await newExpense.save();
