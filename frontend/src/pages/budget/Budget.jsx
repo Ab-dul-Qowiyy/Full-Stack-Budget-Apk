@@ -132,7 +132,7 @@ const Budget = () => {
     //   console.log(err);
     // }
 
-    dispatch(deleteIncome(id))
+    dispatch(deleteIncome(income._id))
   };
   const handleExpenseDelete = async (id) => {
     // try {
@@ -149,7 +149,7 @@ const Budget = () => {
     // } catch (err) {
     //   console.log(err);
     // }
-    dispatch(deleteExpense(id))
+    dispatch(deleteExpense(expense._id))
   };
 
   return (
