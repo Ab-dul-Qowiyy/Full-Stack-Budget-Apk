@@ -114,11 +114,17 @@ const Budget = () => {
 
   const sumTotal = incomeTotal - expenseTotal;
 
+  const token = localStorage.getItem("token");
+
   const handleIncomeDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`
-
+        `https://budget-backend-two.vercel.app/api/incomes/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       console.log(data);
       setIncome(income.filter((income) => income._id !== id));
@@ -129,7 +135,12 @@ const Budget = () => {
   const handleExpenseDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `https://budget-backend-two.vercel.app/api/expenses/delete/${id}`
+        `https://budget-backend-two.vercel.app/api/expenses/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       console.log(data);
       setExpense(expense.filter((expense) => expense._id !== id));

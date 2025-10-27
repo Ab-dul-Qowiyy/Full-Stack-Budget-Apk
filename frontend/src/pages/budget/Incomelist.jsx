@@ -35,7 +35,7 @@ const Del = styled.button`
   border: none;
   cursor: pointer;
   background-color: rgb(255, 91, 91);
-  padding: 0;
+  padding: 1;
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 0.3rem;
